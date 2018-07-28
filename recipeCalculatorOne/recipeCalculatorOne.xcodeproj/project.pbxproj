@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A426EF51210CD6800090AD9F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A426EF4F210CD6800090AD9F /* Model.xcdatamodeld */; };
 		A48F0856210915BE00B75CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F0855210915BE00B75CBC /* AppDelegate.swift */; };
 		A48F0858210915BE00B75CBC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F0857210915BE00B75CBC /* FirstViewController.swift */; };
 		A48F085A210915BE00B75CBC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F0859210915BE00B75CBC /* SecondViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A426EF50210CD6800090AD9F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A48F0852210915BE00B75CBC /* recipeCalculatorOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipeCalculatorOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48F0855210915BE00B75CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A48F0857210915BE00B75CBC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A426EF4E210CD5EC0090AD9F /* storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A48F085B210915BE00B75CBC /* Main.storyboard */,
+				A48F0860210915BE00B75CBC /* LaunchScreen.storyboard */,
+			);
+			path = storyboard;
+			sourceTree = "<group>";
+		};
+		A426EF52210CD6AF0090AD9F /* files */ = {
+			isa = PBXGroup;
+			children = (
+				A48F0857210915BE00B75CBC /* FirstViewController.swift */,
+				A48F0859210915BE00B75CBC /* SecondViewController.swift */,
+				A48F0855210915BE00B75CBC /* AppDelegate.swift */,
+			);
+			path = files;
+			sourceTree = "<group>";
+		};
 		A48F0849210915BE00B75CBC = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +77,11 @@
 		A48F0854210915BE00B75CBC /* recipeCalculatorOne */ = {
 			isa = PBXGroup;
 			children = (
-				A48F0855210915BE00B75CBC /* AppDelegate.swift */,
-				A48F0857210915BE00B75CBC /* FirstViewController.swift */,
-				A48F0859210915BE00B75CBC /* SecondViewController.swift */,
-				A48F085B210915BE00B75CBC /* Main.storyboard */,
+				A426EF4E210CD5EC0090AD9F /* storyboard */,
+				A426EF52210CD6AF0090AD9F /* files */,
 				A48F085E210915BE00B75CBC /* Assets.xcassets */,
-				A48F0860210915BE00B75CBC /* LaunchScreen.storyboard */,
 				A48F0863210915BE00B75CBC /* Info.plist */,
+				A426EF4F210CD6800090AD9F /* Model.xcdatamodeld */,
 			);
 			path = recipeCalculatorOne;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 				A48F085A210915BE00B75CBC /* SecondViewController.swift in Sources */,
 				A48F0856210915BE00B75CBC /* AppDelegate.swift in Sources */,
 				A48F0858210915BE00B75CBC /* FirstViewController.swift in Sources */,
+				A426EF51210CD6800090AD9F /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +356,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A426EF4F210CD6800090AD9F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A426EF50210CD6800090AD9F /* Model.xcdatamodel */,
+			);
+			currentVersion = A426EF50210CD6800090AD9F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A48F084A210915BE00B75CBC /* Project object */;
 }
