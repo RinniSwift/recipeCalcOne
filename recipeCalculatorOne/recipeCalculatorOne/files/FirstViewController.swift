@@ -22,8 +22,7 @@ class FirstViewController: UIViewController {
         }
         
     }
-    
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +42,11 @@ class FirstViewController: UIViewController {
 
 extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            produce.remove(at: indexPath.row)
+        }
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -50,16 +50,24 @@ class displayProduceViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
+        guard let identifier = segue.identifier,
+            let destination = segue.destination as? FirstViewController
+            else { return }
         
         switch identifier {
-        case "save":
+        case "save" where prod != nil:
+            prod?.ingredientTitle = ingredientTextField.text ?? ""
+            prod?.amountInDoubles = amountDoubleTextField.text ?? ""
+            prod?.ingredientPrice = priceTextField.text ?? ""
+            
+            destination.tableView.reloadData()
+            
+        case "save" where prod == nil:
             let prod = Produce()
             prod.ingredientTitle = ingredientTextField.text ?? ""
             prod.amountInDoubles = amountDoubleTextField.text ?? ""
             prod.ingredientPrice = priceTextField.text ?? ""
             
-            let destination = segue.destination as! FirstViewController
             destination.produce.append(prod)
             
         case "cancel":
