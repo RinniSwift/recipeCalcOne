@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A426EF51210CD6800090AD9F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A426EF4F210CD6800090AD9F /* Model.xcdatamodeld */; };
+		A48C886C210F7B3200EA401A /* displayProduceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C886B210F7B3200EA401A /* displayProduceViewController.swift */; };
+		A48C886F210FA8FB00EA401A /* Produce.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C886E210FA8FB00EA401A /* Produce.swift */; };
+		A48C8871210FBA5300EA401A /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C8870210FBA5300EA401A /* IngredientCell.swift */; };
 		A48F0856210915BE00B75CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F0855210915BE00B75CBC /* AppDelegate.swift */; };
 		A48F0858210915BE00B75CBC /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F0857210915BE00B75CBC /* FirstViewController.swift */; };
 		A48F085A210915BE00B75CBC /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48F0859210915BE00B75CBC /* SecondViewController.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		A426EF50210CD6800090AD9F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A48C886B210F7B3200EA401A /* displayProduceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = displayProduceViewController.swift; sourceTree = "<group>"; };
+		A48C886E210FA8FB00EA401A /* Produce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produce.swift; sourceTree = "<group>"; };
+		A48C8870210FBA5300EA401A /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		A48F0852210915BE00B75CBC /* recipeCalculatorOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipeCalculatorOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48F0855210915BE00B75CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A48F0857210915BE00B75CBC /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +60,18 @@
 				A48F0857210915BE00B75CBC /* FirstViewController.swift */,
 				A48F0859210915BE00B75CBC /* SecondViewController.swift */,
 				A48F0855210915BE00B75CBC /* AppDelegate.swift */,
+				A48C886B210F7B3200EA401A /* displayProduceViewController.swift */,
+				A48C8870210FBA5300EA401A /* IngredientCell.swift */,
 			);
 			path = files;
+			sourceTree = "<group>";
+		};
+		A48C886D210FA8E700EA401A /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A48C886E210FA8FB00EA401A /* Produce.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		A48F0849210915BE00B75CBC = {
@@ -77,6 +93,7 @@
 		A48F0854210915BE00B75CBC /* recipeCalculatorOne */ = {
 			isa = PBXGroup;
 			children = (
+				A48C886D210FA8E700EA401A /* model */,
 				A426EF4E210CD5EC0090AD9F /* storyboard */,
 				A426EF52210CD6AF0090AD9F /* files */,
 				A48F085E210915BE00B75CBC /* Assets.xcassets */,
@@ -157,10 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A48C886C210F7B3200EA401A /* displayProduceViewController.swift in Sources */,
 				A48F085A210915BE00B75CBC /* SecondViewController.swift in Sources */,
+				A48C886F210FA8FB00EA401A /* Produce.swift in Sources */,
 				A48F0856210915BE00B75CBC /* AppDelegate.swift in Sources */,
 				A48F0858210915BE00B75CBC /* FirstViewController.swift in Sources */,
 				A426EF51210CD6800090AD9F /* Model.xcdatamodeld in Sources */,
+				A48C8871210FBA5300EA401A /* IngredientCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
