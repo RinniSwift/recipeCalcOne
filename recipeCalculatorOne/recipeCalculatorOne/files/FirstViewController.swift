@@ -26,6 +26,8 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        produce = CoreDataHelper.retrieveProduce()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -55,6 +57,7 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! IngredientCell
+        
         let produceIngredients = produce[indexPath.row]
         cell.ingredientLabel.text = produceIngredients.ingredientTitle
         return cell
@@ -82,10 +85,9 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
     }
+    
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        
+        produce = CoreDataHelper.retrieveProduce()
     }
-    
-    
     
 }
