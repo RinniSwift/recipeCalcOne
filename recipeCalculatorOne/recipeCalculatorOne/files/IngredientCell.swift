@@ -13,5 +13,6 @@ class IngredientCell: UITableViewCell {
     
     
     @IBOutlet weak var ingredientLabel: UILabel!
+    @IBOutlet weak var ingredientPriceLabel: UILabel!
     
 }

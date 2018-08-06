@@ -50,7 +50,6 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return produce.count
     }
@@ -60,6 +59,8 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
         
         let produceIngredients = produce[indexPath.row]
         cell.ingredientLabel.text = produceIngredients.ingredientTitle
+        cell.ingredientPriceLabel.text = String(produceIngredients.ingredientPrice)
+        
         return cell
     }
     

@@ -11,7 +11,21 @@ import UIKit
 
 class DisplayRecipeViewController: UIViewController {
     
+    var rec: Recipe?
+    
     @IBOutlet weak var recipeTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let recipe = rec {
+            recipeTextField.text = recipe.recipeTitle
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     
     
@@ -21,8 +35,15 @@ class DisplayRecipeViewController: UIViewController {
             else { return }
         
         switch identifier {
-        case "saveRecipe":
-            print("save recipe bar button item tapped.")
+        case "saveRecipe" where rec != nil:
+            rec?.recipeTitle = recipeTextField.text ?? ""
+            
+        case "saveRecipe" where rec == nil:
+            let rec = CoreDataHelper.newRecipe()
+            rec.recipeTitle = recipeTextField.text ?? ""
+            
+            CoreDataHelper.saveRecipe()
+            
         case "cancelRecipe":
             print("cancel recipe bar button item tapped")
         default:

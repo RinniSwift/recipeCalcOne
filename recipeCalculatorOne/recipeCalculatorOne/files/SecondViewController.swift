@@ -14,9 +14,19 @@ class SecondViewController: UIViewController {
 
     @IBOutlet weak var recipeTableView: UITableView!
     
+    var recipe = [Recipe]() {
+        didSet {
+            recipeTableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recipeTableView.delegate = self
+        recipeTableView.dataSource = self
+        
+        recipe = CoreDataHelper.retrieveRecipe()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,29 +35,53 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindWithSegues(_ segue: UIStoryboardSegue) {
-        
-            }
     
 }
 
 
-//extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
-//
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 5
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cells = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
-//        cells.recipeLabel.text = "happy"
-//        return cells
-//    }
-//
-//    
-//    
-//    @IBAction func unwindWithSegues(_ segue: UIStoryboardSegue) {
-//        
-//    }
-//}
+extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            recipe.remove(at: indexPath.row)
+            
+        }
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipe.count 
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cells = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
+        
+        let recipesRecipe = recipe[indexPath.row]
+        cells.recipeLabel.text = recipesRecipe.recipeTitle
+        
+        return cells
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+        
+        switch identifier {
+        case "recipeCellTapped":
+            print("recipe cell tapped")
+            
+            guard let indexPath = recipeTableView.indexPathForSelectedRow else { return }
+            let rec = recipe[indexPath.row]
+            let destination = segue.destination as! DisplayRecipeViewController
+            destination.rec = rec
+            
+        case "addRecipeTapped":
+            print("add recipe bar button tapped")
+        default:
+            print("unexpected segue identifier")
+        }
+    }
+    
+    
+    @IBAction func unwindWithSegues(_ segue: UIStoryboardSegue) {
+        recipe = CoreDataHelper.retrieveRecipe()
+    }
+}

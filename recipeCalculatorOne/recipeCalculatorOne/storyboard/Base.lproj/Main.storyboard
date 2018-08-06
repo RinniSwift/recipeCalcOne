@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdO-fM-e8I">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,16 +36,36 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTB-QD-KgK">
+                                                    <rect key="frame" x="313.5" y="21" width="46.5" height="18"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Dx-cQ-WoC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="9.5" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4e-FO-aP2">
+                                                            <rect key="frame" x="9.5" y="0.0" width="37" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="h7g-jh-Rwf" firstAttribute="leading" secondItem="kK0-wE-1lm" secondAttribute="leadingMargin" id="7BU-V0-Emd"/>
+                                                <constraint firstItem="nTB-QD-KgK" firstAttribute="centerY" secondItem="kK0-wE-1lm" secondAttribute="centerY" id="CXt-ME-z6f"/>
                                                 <constraint firstItem="h7g-jh-Rwf" firstAttribute="centerY" secondItem="kK0-wE-1lm" secondAttribute="centerY" id="D7Y-r2-yAN"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nTB-QD-KgK" secondAttribute="trailing" id="Rib-Cb-6Tt"/>
                                                 <constraint firstItem="h7g-jh-Rwf" firstAttribute="top" secondItem="kK0-wE-1lm" secondAttribute="topMargin" constant="1" id="ZbS-Zb-OQV"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h7g-jh-Rwf" secondAttribute="trailingMargin" id="nkt-1o-1aD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientLabel" destination="h7g-jh-Rwf" id="RfS-mg-oLh"/>
+                                            <outlet property="ingredientPriceLabel" destination="i4e-FO-aP2" id="hWS-i7-YnW"/>
                                             <segue destination="8S9-Ia-OJk" kind="show" identifier="displayIngredientInformation" id="pwR-Pc-dLd"/>
                                         </connections>
                                     </tableViewCell>
@@ -172,7 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-oR-F5U" customClass="RecipeViewController" customModule="recipeCalculatorOne" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-oR-F5U">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -197,7 +217,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="recipeLabel" destination="l5N-AK-fBr" id="rGY-Vt-WFp"/>
+                                            <outlet property="recipeLabel" destination="l5N-AK-fBr" id="BIM-d7-Z4f"/>
                                             <segue destination="mfU-60-CkM" kind="show" identifier="recipeCellTapped" id="ZRa-yP-fWR"/>
                                         </connections>
                                     </tableViewCell>
@@ -219,7 +239,7 @@
                     <navigationItem key="navigationItem" title="Recipe" id="htk-q9-Ml1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ldl-xk-D9G">
                             <connections>
-                                <segue destination="mfU-60-CkM" kind="show" id="cjg-KF-FTE"/>
+                                <segue destination="mfU-60-CkM" kind="show" identifier="addRecipeTapped" id="cjg-KF-FTE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -282,6 +302,10 @@
                                     </textView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeQ-Co-fz2">
+                                <rect key="frame" x="0.0" y="151" width="375" height="30"/>
+                                <state key="normal" title="Add Ingredients"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -289,12 +313,15 @@
                             <constraint firstItem="gI7-06-mbp" firstAttribute="bottom" secondItem="UEZ-TM-IBe" secondAttribute="bottom" constant="20" id="8vO-wR-sAh"/>
                             <constraint firstItem="UEZ-TM-IBe" firstAttribute="centerX" secondItem="OLV-O8-26w" secondAttribute="centerX" id="JJZ-cE-Vpa"/>
                             <constraint firstItem="UEZ-TM-IBe" firstAttribute="top" secondItem="4fU-51-e7M" secondAttribute="bottom" constant="20" id="Jop-Ge-cUa"/>
+                            <constraint firstItem="MeQ-Co-fz2" firstAttribute="centerX" secondItem="6Oe-vt-eIG" secondAttribute="centerX" id="VsF-Tj-lcD"/>
+                            <constraint firstItem="MeQ-Co-fz2" firstAttribute="top" secondItem="OLV-O8-26w" secondAttribute="bottom" constant="7" id="Wdf-hB-lsE"/>
                             <constraint firstItem="4fU-51-e7M" firstAttribute="leading" secondItem="gI7-06-mbp" secondAttribute="leading" id="WiE-Ne-Hc4"/>
                             <constraint firstItem="UEZ-TM-IBe" firstAttribute="leading" secondItem="gI7-06-mbp" secondAttribute="leading" constant="76" id="bZs-1k-kq3"/>
                             <constraint firstItem="OLV-O8-26w" firstAttribute="centerX" secondItem="6Oe-vt-eIG" secondAttribute="centerX" id="dBO-sp-OGj"/>
                             <constraint firstItem="4fU-51-e7M" firstAttribute="trailing" secondItem="gI7-06-mbp" secondAttribute="trailing" id="jXS-Ft-RSf"/>
                             <constraint firstItem="OLV-O8-26w" firstAttribute="top" secondItem="gI7-06-mbp" secondAttribute="top" constant="50" id="nGg-za-z5f"/>
                             <constraint firstItem="4fU-51-e7M" firstAttribute="top" secondItem="OLV-O8-26w" secondAttribute="bottom" id="uUo-H5-UEj"/>
+                            <constraint firstAttribute="trailing" secondItem="MeQ-Co-fz2" secondAttribute="trailing" id="uae-J5-8UO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gI7-06-mbp"/>
                     </view>
@@ -310,11 +337,68 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="recipeTextField" destination="OLV-O8-26w" id="NcO-ke-tlW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKF-T4-7TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7sj-X7-xgH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2432.8000000000002" y="422.33883058470769"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NiA-ck-KMJ">
+            <objects>
+                <viewController id="fdO-fM-e8I" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zaU-uc-R8x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JmT-O3-RqM">
+                                <rect key="frame" x="67" y="468" width="240" height="134"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qSE-Hg-sb1">
+                                        <rect key="frame" x="20" y="0.0" width="200" height="34"/>
+                                        <color key="backgroundColor" red="0.8980392157" green="0.22352941179999999" blue="0.20784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="UvH-r0-iyO"/>
+                                            <constraint firstAttribute="width" constant="200" id="j0U-6g-jDs"/>
+                                        </constraints>
+                                        <state key="normal" title="Calculate Your Recipe!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="49e-Tb-3d3" kind="show" id="qZx-yr-Zrd"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Calculate exactly how much your recipe costs." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sQd-WP-Ddf">
+                                        <rect key="frame" x="0.0" y="54" width="240" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="zK5-MB-KWI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sQd-WP-Ddf" secondAttribute="trailing" id="EoR-ay-poh"/>
+                                    <constraint firstAttribute="bottom" secondItem="sQd-WP-Ddf" secondAttribute="bottom" id="hAf-Bp-N1a"/>
+                                    <constraint firstItem="sQd-WP-Ddf" firstAttribute="leading" secondItem="JmT-O3-RqM" secondAttribute="leading" id="lDy-AQ-tp7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JmT-O3-RqM" firstAttribute="centerX" secondItem="zaU-uc-R8x" secondAttribute="centerX" id="lSf-Jt-NRQ"/>
+                            <constraint firstItem="d3f-MQ-lLe" firstAttribute="bottom" secondItem="JmT-O3-RqM" secondAttribute="bottom" constant="65" id="uFO-K1-zm3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d3f-MQ-lLe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cXF-hq-wRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-919.20000000000005" y="-0.44977511244377816"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -388,7 +472,7 @@
         <image name="icons8-ledger-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZRa-yP-fWR"/>
+        <segue reference="cjg-KF-FTE"/>
         <segue reference="pwR-Pc-dLd"/>
     </inferredMetricsTieBreakers>
 </document>
