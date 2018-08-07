@@ -9,15 +9,19 @@
 import Foundation
 import UIKit
 
-class DisplayRecipeViewController: UIViewController {
+class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     var rec: Recipe?
+    var produce: [Produce] = []
     
     @IBOutlet weak var recipeTextField: UITextField!
+    @IBOutlet weak var ingredientsRecipeTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ingredientsRecipeTableView.dataSource = self
+        ingredientsRecipeTableView.delegate = self
         if let recipe = rec {
             recipeTextField.text = recipe.recipeTitle
         }
@@ -25,7 +29,20 @@ class DisplayRecipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        produce = CoreDataHelper.retrieveProduce()
+        ingredientsRecipeTableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return produce.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ingredientsRecipeTableView.dequeueReusableCell(withIdentifier: "ingredientRecipeCell") as! IngredientRecipeCell
+        cell.ingredientRecipeLabel.text = self.produce[indexPath.row].ingredientTitle
+        return cell
+    }
+    
     
     
     
@@ -50,6 +67,10 @@ class DisplayRecipeViewController: UIViewController {
             print("unexpected segue identifier.")
         }
         
+    }
+    
+    @IBAction func unwindWithSegue3(_ segue: UIStoryboardSegue) {
+    
     }
     
 }

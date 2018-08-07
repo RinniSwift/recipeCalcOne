@@ -18,6 +18,7 @@
 		A48F0862210915BE00B75CBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48F0860210915BE00B75CBC /* LaunchScreen.storyboard */; };
 		A4AAFD80211517BF00D2C15B /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AAFD7F211517BF00D2C15B /* RecipeCell.swift */; };
 		A4D84BAF2113647F0090F44C /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D84BAE2113647F0090F44C /* CoreDataHelper.swift */; };
+		A4E138042119255900FBE3F7 /* IngredientRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E138032119255900FBE3F7 /* IngredientRecipeCell.swift */; };
 		A4EE25AE21141D4300FE1A0B /* DisplayRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EE25AD21141D4300FE1A0B /* DisplayRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		A48F0863210915BE00B75CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4AAFD7F211517BF00D2C15B /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		A4D84BAE2113647F0090F44C /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		A4E138032119255900FBE3F7 /* IngredientRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRecipeCell.swift; sourceTree = "<group>"; };
 		A4EE25AD21141D4300FE1A0B /* DisplayRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 				A48F0859210915BE00B75CBC /* SecondViewController.swift */,
 				A4EE25AD21141D4300FE1A0B /* DisplayRecipeViewController.swift */,
 				A4AAFD7F211517BF00D2C15B /* RecipeCell.swift */,
+				A4E138032119255900FBE3F7 /* IngredientRecipeCell.swift */,
 			);
 			path = files;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				A48F0858210915BE00B75CBC /* FirstViewController.swift in Sources */,
 				A426EF51210CD6800090AD9F /* Model.xcdatamodeld in Sources */,
 				A48C8871210FBA5300EA401A /* IngredientCell.swift in Sources */,
+				A4E138042119255900FBE3F7 /* IngredientRecipeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

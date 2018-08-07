@@ -46,7 +46,11 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let selectedProduce = produce[indexPath.row]
             produce.remove(at: indexPath.row)
+
+            CoreDataHelper.delete(prod: selectedProduce)
+            tableView.reloadData()
         }
     }
     
