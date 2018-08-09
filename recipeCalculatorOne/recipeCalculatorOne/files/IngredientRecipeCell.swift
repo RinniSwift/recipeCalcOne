@@ -12,6 +12,7 @@ import UIKit
 class IngredientRecipeCell: UITableViewCell {
     
     
+    @IBOutlet weak var userInputGramTF: UITextField!
     @IBOutlet weak var ingredientRecipeLabel: UILabel!
     
 }

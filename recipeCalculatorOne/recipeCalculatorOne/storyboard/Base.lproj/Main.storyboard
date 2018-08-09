@@ -66,7 +66,7 @@
                                         <connections>
                                             <outlet property="ingredientLabel" destination="h7g-jh-Rwf" id="RfS-mg-oLh"/>
                                             <outlet property="ingredientPriceLabel" destination="i4e-FO-aP2" id="hWS-i7-YnW"/>
-                                            <segue destination="8S9-Ia-OJk" kind="show" identifier="displayIngredientInformation" id="pwR-Pc-dLd"/>
+                                            <segue destination="8S9-Ia-OJk" kind="show" identifier="displayIngredientInformation" id="ySj-8D-uMC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -90,7 +90,7 @@
                     <navigationItem key="navigationItem" title="Produce" id="ly6-9q-fuQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="D6b-FU-aym">
                             <connections>
-                                <segue destination="8S9-Ia-OJk" kind="show" identifier="addIngredients" id="ERA-DA-J4I"/>
+                                <segue destination="8S9-Ia-OJk" kind="show" id="pb5-3u-km0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -175,12 +175,12 @@
                     <navigationItem key="navigationItem" title="Ingredient" id="JSn-2I-y3x">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="pxJ-kr-6i8">
                             <connections>
-                                <segue destination="uxe-LP-2HG" kind="unwind" identifier="cancel" unwindAction="unwindWithSegue:" id="bap-5l-u2A"/>
+                                <action selector="cancelIngredient:" destination="8S9-Ia-OJk" id="KtV-fh-vc9"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="GRc-FV-PuD">
                             <connections>
-                                <segue destination="uxe-LP-2HG" kind="unwind" identifier="save" unwindAction="unwindWithSegue:" id="WEV-4T-NmC"/>
+                                <action selector="saveIngredient:" destination="8S9-Ia-OJk" id="bXN-Fo-KSq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -191,7 +191,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubW-M5-l5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="uxe-LP-2HG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2432.8000000000002" y="-319.79010494752629"/>
         </scene>
@@ -229,7 +228,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="recipeLabel" destination="l5N-AK-fBr" id="BIM-d7-Z4f"/>
-                                            <segue destination="mfU-60-CkM" kind="show" identifier="recipeCellTapped" id="ZRa-yP-fWR"/>
+                                            <segue destination="mfU-60-CkM" kind="show" identifier="displayRecipeInformation" id="PSc-fI-jdE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -250,7 +249,7 @@
                     <navigationItem key="navigationItem" title="Recipe" id="htk-q9-Ml1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ldl-xk-D9G">
                             <connections>
-                                <segue destination="mfU-60-CkM" kind="show" identifier="addRecipeTapped" id="cjg-KF-FTE"/>
+                                <segue destination="mfU-60-CkM" kind="show" id="via-HC-SKp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -294,24 +293,64 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-Nn-9fM">
-                                                    <rect key="frame" x="15" y="12.5" width="45" height="20"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eju-mw-ocU">
+                                                    <rect key="frame" x="15" y="12" width="90" height="20"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIg-7E-8VU">
+                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="20"/>
+                                                            <state key="normal" image="uncheckedBox"/>
+                                                            <state key="selected" image="checkedBox"/>
+                                                            <connections>
+                                                                <action selector="checkBoxTapped:" destination="mfU-60-CkM" eventType="touchUpInside" id="TTQ-J7-ngg"/>
+                                                            </connections>
+                                                        </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-Nn-9fM">
+                                                            <rect key="frame" x="45" y="0.0" width="45" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="hBG-3o-Ocd"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="jHh-VX-0hE"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-gM-qIo">
+                                                    <rect key="frame" x="295" y="7" width="50" height="30"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8s-35-Z2A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="a1p-Fw-dsK"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-KE-MYs">
+                                                            <rect key="frame" x="40" y="0.0" width="10" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="hBG-3o-Ocd"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="jHh-VX-0hE"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="crZ-55-M4G"/>
+                                                        <constraint firstItem="T8s-35-Z2A" firstAttribute="centerY" secondItem="Zkp-gM-qIo" secondAttribute="centerY" id="hvf-Ra-eeX"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="BWL-Nn-9fM" firstAttribute="centerY" secondItem="WQA-hT-I0S" secondAttribute="centerY" id="48W-FH-e0M"/>
-                                                <constraint firstItem="BWL-Nn-9fM" firstAttribute="leading" secondItem="WQA-hT-I0S" secondAttribute="leadingMargin" id="WR1-2X-FgW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Zkp-gM-qIo" secondAttribute="trailing" constant="15" id="DtJ-P3-48A"/>
+                                                <constraint firstItem="eju-mw-ocU" firstAttribute="centerY" secondItem="WQA-hT-I0S" secondAttribute="centerY" id="HMg-0W-7ET"/>
+                                                <constraint firstItem="Zkp-gM-qIo" firstAttribute="centerY" secondItem="WQA-hT-I0S" secondAttribute="centerY" id="KQh-oz-Bt9"/>
+                                                <constraint firstItem="eju-mw-ocU" firstAttribute="leading" secondItem="WQA-hT-I0S" secondAttribute="leadingMargin" id="q6J-cJ-fuE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientRecipeLabel" destination="BWL-Nn-9fM" id="jVc-se-eCr"/>
+                                            <outlet property="userInputGramTF" destination="T8s-35-Z2A" id="fHi-UZ-cbJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -351,12 +390,12 @@
                     <navigationItem key="navigationItem" title="Recipe" id="UoB-Ep-PAl">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="5mY-e2-5sI">
                             <connections>
-                                <segue destination="7sj-X7-xgH" kind="unwind" identifier="cancelRecipe" unwindAction="unwindWithSegues:" id="mNF-Vk-rHb"/>
+                                <action selector="cancelRecipe:" destination="mfU-60-CkM" id="7Mn-Jb-bjX"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="fc0-Lg-cg3">
                             <connections>
-                                <segue destination="7sj-X7-xgH" kind="unwind" identifier="saveRecipe" unwindAction="unwindWithSegues:" id="wim-fo-hq2"/>
+                                <action selector="saveRecipe:" destination="mfU-60-CkM" id="ZOG-pz-5Od"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -366,7 +405,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKF-T4-7TB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="7sj-X7-xgH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2432.8000000000002" y="422.33883058470769"/>
         </scene>
@@ -491,11 +529,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkedBox" width="35" height="35"/>
         <image name="icons8-cardboard-box-30" width="30" height="30"/>
         <image name="icons8-ledger-30" width="30" height="30"/>
+        <image name="uncheckedBox" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cjg-KF-FTE"/>
-        <segue reference="ERA-DA-J4I"/>
+        <segue reference="PSc-fI-jdE"/>
+        <segue reference="ySj-8D-uMC"/>
     </inferredMetricsTieBreakers>
 </document>

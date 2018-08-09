@@ -11,12 +11,41 @@ import UIKit
 
 class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     var rec: Recipe?
     var produce: [Produce] = []
     
     @IBOutlet weak var recipeTextField: UITextField!
     @IBOutlet weak var ingredientsRecipeTableView: UITableView!
+    
+    @IBAction func saveRecipe(_ sender: Any) {
+        
+        if recipeTextField.text == "" {
+            return
+        }
+        
+        if rec == nil {
+            let rec = CoreDataHelper.newRecipe()
+            rec.recipeTitle = recipeTextField.text ?? ""
+        } else {
+            rec?.recipeTitle = recipeTextField.text ?? ""
+        }
+        
+        CoreDataHelper.saveRecipe()
+        
+        guard let controllers = navigationController?.viewControllers else { return }
+        print(controllers.count)
+        
+        let secondViewController = controllers[0] as! SecondViewController
+        navigationController?.popToViewController(secondViewController, animated: true)
+    }
+    
+    @IBAction func cancelRecipe(_ sender: Any) {
+        guard let controllers = navigationController?.viewControllers else { return }
+        let secondViewController = controllers[0] as! SecondViewController
+        navigationController?.popToViewController(secondViewController, animated: true)
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,39 +67,20 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = ingredientsRecipeTableView.dequeueReusableCell(withIdentifier: "ingredientRecipeCell") as! IngredientRecipeCell
         cell.ingredientRecipeLabel.text = self.produce[indexPath.row].ingredientTitle
         return cell
     }
     
     
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier,
-        let destination = segue.destination as? SecondViewController
-            else { return }
-        
-        switch identifier {
-        case "saveRecipe" where rec != nil:
-            rec?.recipeTitle = recipeTextField.text ?? ""
-            
-        case "saveRecipe" where rec == nil:
-            let rec = CoreDataHelper.newRecipe()
-            rec.recipeTitle = recipeTextField.text ?? ""
-            
-            CoreDataHelper.saveRecipe()
-            
-        case "cancelRecipe":
-            print("cancel recipe bar button item tapped")
-        default:
-            print("unexpected segue identifier.")
+    @IBAction func checkBoxTapped(_ sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
         }
-        
     }
     
-    @IBAction func unwindWithSegue3(_ segue: UIStoryboardSegue) {
-    
-    }
     
 }

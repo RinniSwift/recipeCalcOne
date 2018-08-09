@@ -29,6 +29,11 @@ class SecondViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        recipeTableView.reloadData()
+        recipe = CoreDataHelper.retrieveRecipe()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,15 +46,20 @@ class SecondViewController: UIViewController {
 
 extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            recipe.remove(at: indexPath.row)
-            
+            let selectedRecipe = recipe[indexPath.row]
+            recipe.remove(at: indexPath.row)
+
+            CoreDataHelper.delete(rec: selectedRecipe)
+            tableView.reloadData()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipe.count 
+        print(recipe.count)
+        return recipe.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,16 +75,13 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
-        case "recipeCellTapped":
+        case "displayRecipeInformation":
             print("recipe cell tapped")
             
             guard let indexPath = recipeTableView.indexPathForSelectedRow else { return }
             let rec = recipe[indexPath.row]
             let destination = segue.destination as! DisplayRecipeViewController
             destination.rec = rec
-            
-        case "addRecipeTapped":
-            print("add recipe bar button tapped")
         default:
             print("unexpected segue identifier")
         }

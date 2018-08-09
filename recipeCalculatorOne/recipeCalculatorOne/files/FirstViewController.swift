@@ -15,12 +15,18 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    
+    
     var produce = [Produce]() {
         
         didSet {
             tableView.reloadData()
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        produce = CoreDataHelper.retrieveProduce()
     }
 
 
@@ -70,18 +76,15 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
-        
+
         switch identifier {
         case "displayIngredientInformation":
             print("ingredient cell tapped")
-            
+
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let prod = produce[indexPath.row]
             let destination = segue.destination as! displayProduceViewController
             destination.prod = prod
-            
-        case "addIngredients":
-            print("add ingredient bar button item tapped")
 
 
         default:
@@ -91,8 +94,8 @@ extension FirstViewController: UITableViewDataSource, UITableViewDelegate {
 
     }
     
-    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
-        produce = CoreDataHelper.retrieveProduce()
-    }
+//    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+//        produce = CoreDataHelper.retrieveProduce()
+//    }
     
 }
