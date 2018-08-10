@@ -4,12 +4,20 @@
         <attribute name="ingredientAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ingredientPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ingredientTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipeProduces" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RecipeProduce" inverseName="produce" inverseEntity="RecipeProduce" syncable="YES"/>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES" codeGenerationType="class">
         <attribute name="recipeTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipeProduces" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="RecipeProduce" inverseName="recipe" inverseEntity="RecipeProduce" syncable="YES"/>
+    </entity>
+    <entity name="RecipeProduce" representedClassName="RecipeProduce" syncable="YES" codeGenerationType="class">
+        <attribute name="recipeAmount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="produce" maxCount="1" deletionRule="Nullify" destinationEntity="Produce" inverseName="recipeProduces" inverseEntity="Produce" syncable="YES"/>
+        <relationship name="recipe" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="recipeProduces" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Produce" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Recipe" positionX="-54" positionY="18" width="128" height="60"/>
+        <element name="Produce" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Recipe" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="RecipeProduce" positionX="-45" positionY="36" width="128" height="90"/>
     </elements>
 </model>

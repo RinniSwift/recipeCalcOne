@@ -9,10 +9,20 @@
 import Foundation
 import UIKit
 
+protocol IngredientRecipeCellDelegate: class {
+    func ingredientCell(_ ingredientCell: IngredientRecipeCell, checkboxTapped: UIButton, to newSelectedState: Bool)
+}
+
 class IngredientRecipeCell: UITableViewCell {
     
+    weak var delegate: IngredientRecipeCellDelegate?
     
-    @IBOutlet weak var userInputGramTF: UITextField!
+    @IBOutlet weak var ingredientAmount: UITextField!
     @IBOutlet weak var ingredientRecipeLabel: UILabel!
     
+    @IBOutlet weak var checkboxButton: UIButton!
+    
+    @IBAction func pressCheckBox(_ checkboxButton: UIButton) {
+        delegate?.ingredientCell(self, checkboxTapped: checkboxButton, to: checkboxButton.isSelected)
+    }
 }

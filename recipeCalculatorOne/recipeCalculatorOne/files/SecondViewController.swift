@@ -81,7 +81,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
             guard let indexPath = recipeTableView.indexPathForSelectedRow else { return }
             let rec = recipe[indexPath.row]
             let destination = segue.destination as! DisplayRecipeViewController
-            destination.rec = rec
+            destination.recipe = rec
         default:
             print("unexpected segue identifier")
         }

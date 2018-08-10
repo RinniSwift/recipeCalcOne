@@ -302,6 +302,7 @@
                                                             <state key="selected" image="checkedBox"/>
                                                             <connections>
                                                                 <action selector="checkBoxTapped:" destination="mfU-60-CkM" eventType="touchUpInside" id="TTQ-J7-ngg"/>
+                                                                <action selector="pressCheckBox:" destination="39o-TN-FhW" eventType="touchUpInside" id="6Ng-1B-KOd"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-Nn-9fM">
@@ -349,8 +350,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="checkboxButton" destination="SIg-7E-8VU" id="N1d-s3-bBA"/>
+                                            <outlet property="ingredientAmount" destination="T8s-35-Z2A" id="vpA-UW-IPv"/>
                                             <outlet property="ingredientRecipeLabel" destination="BWL-Nn-9fM" id="jVc-se-eCr"/>
-                                            <outlet property="userInputGramTF" destination="T8s-35-Z2A" id="fHi-UZ-cbJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -359,17 +361,23 @@
                                 <rect key="frame" x="76" y="560" width="225" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-yg-iP1">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="38"/>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculateButton:" destination="mfU-60-CkM" eventType="touchUpInside" id="Yui-4q-5jM"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VTa-AG-ytT">
-                                        <rect key="frame" x="94" y="0.0" width="131" height="38"/>
+                                        <rect key="frame" x="127.5" y="0.0" width="97.5" height="38"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="VTa-AG-ytT" firstAttribute="width" secondItem="Hf1-yg-iP1" secondAttribute="width" id="MXB-nt-dQJ"/>
+                                    <constraint firstItem="VTa-AG-ytT" firstAttribute="height" secondItem="Hf1-yg-iP1" secondAttribute="height" id="xrg-7e-hGX"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -395,12 +403,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="fc0-Lg-cg3">
                             <connections>
-                                <action selector="saveRecipe:" destination="mfU-60-CkM" id="ZOG-pz-5Od"/>
+                                <action selector="saveRecipe:" destination="mfU-60-CkM" id="2fL-yd-g20"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientsRecipeTableView" destination="4fU-51-e7M" id="gbk-xN-nyK"/>
+                        <outlet property="priceAfterCalculateButtonTapped" destination="VTa-AG-ytT" id="Rda-Qo-A8U"/>
                         <outlet property="recipeTextField" destination="OLV-O8-26w" id="NcO-ke-tlW"/>
                     </connections>
                 </viewController>
@@ -535,7 +544,7 @@
         <image name="uncheckedBox" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PSc-fI-jdE"/>
+        <segue reference="via-HC-SKp"/>
         <segue reference="ySj-8D-uMC"/>
     </inferredMetricsTieBreakers>
 </document>
