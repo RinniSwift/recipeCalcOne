@@ -19,7 +19,7 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
     }
-    //    var recipe = [Recipe]()
+    
     var produce = [Produce]()
     var selectedIngredients = [RecipeProduce]()
     
@@ -43,9 +43,9 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var recipeTextField: UITextField!
     
     @IBOutlet weak var ingredientsRecipeTableView: UITableView!
+
     
-    @IBOutlet weak var priceAfterCalculateButtonTapped: UITextView!
-    
+    @IBOutlet weak var priceAfterCalculateButtonTapped: UITextField!
     
     
     
@@ -78,6 +78,9 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
         
         let secondViewController = controllers[0] as! SecondViewController
         navigationController?.popToViewController(secondViewController, animated: true)
+        
+        
+            
     }
     
     @IBAction func cancelRecipe(_ sender: Any) {
@@ -137,6 +140,8 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
         if let recipe = recipe {
             recipeTextField.text = recipe.recipeTitle
         }
+        
+        self.recipeTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -150,8 +155,15 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
         //        }
     }
     
+//    hide keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        recipeTextField.resignFirstResponder()
+        return true
+    }
     
     
     
@@ -170,6 +182,7 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        ingredientsRecipeTableView.keyboardDismissMode = .onDrag
         let cell = ingredientsRecipeTableView.dequeueReusableCell(withIdentifier: "ingredientRecipeCell") as! IngredientRecipeCell
         let ingredient = produce[indexPath.row]
         
@@ -328,22 +341,33 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
     //shows recipe price
     @IBAction func calculateButton(_ sender: Any) {
         print("worksss")
-        priceAfterCalculateButtonTapped.text = recipeTextField.text
         
-        var totalCost = 0
+        var totalCost: Double = 0.0
         
-        //loop through all RecipeProduce in recipe.recipieProduceArray
-        
-         //get the amount for aRecipeProduce
-        
-         //get aRecipeProduce.produce.amount, aRecipeProduce.produce.price
-        
-         //cacluate the price for aRecipeProduce
-        
-         //add cost to the sum
-        
+        //loop through all RecipeProduce in recipe.recipeProduceArray
+        for anIngredient in selectedIngredients {
+            
+            //get the amount for anIngredient
+            let amount = Double(anIngredient.recipeAmount)
+            
+            //get the produce for the current anIngredient
+            guard let produceForIngredient = anIngredient.produce else {
+                continue
+            }
+            
+            //get anIngredient.produce.amount, anIngredient.produce.price
+            let producePrice = Double(produceForIngredient.ingredientPrice)
+            let produceAmount = Double(produceForIngredient.ingredientAmount)
+            
+            //cacluate the price for aRecipeProduce
+            let priceForIngredient = producePrice / produceAmount * amount
+            
+            //add cost to the sum
+            totalCost += priceForIngredient
+        }
         
         //display totalCost on the UI
+        priceAfterCalculateButtonTapped.text = String(format: "%.2f", totalCost)
         
     }
     

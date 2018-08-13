@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class displayProduceViewController: UIViewController {
+class displayProduceViewController: UIViewController, UITextFieldDelegate {
     
     var prod: Produce?
     
@@ -63,8 +63,23 @@ class displayProduceViewController: UIViewController {
             ingredientTextField.text = produce.ingredientTitle
             amountDoubleTextField.text = String(produce.ingredientAmount)
             priceTextField.text = String(produce.ingredientPrice)
+            
         }
+        
+        
+        self.ingredientTextField.delegate = self
     }
+    
+//    hide keyboard when users taps outside the keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+//    hide keyboard when users hit the return keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        ingredientTextField.resignFirstResponder()
+        return true
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

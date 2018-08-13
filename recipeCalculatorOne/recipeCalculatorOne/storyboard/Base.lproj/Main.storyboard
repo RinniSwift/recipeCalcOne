@@ -129,7 +129,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="g" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuS-S7-vhk">
                                         <rect key="frame" x="70" y="0.0" width="8" height="30"/>
@@ -146,7 +146,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncM-o0-HN5">
                                 <rect key="frame" x="250.5" y="219" width="9.5" height="20"/>
@@ -327,7 +327,7 @@
                                                             </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="g" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-KE-MYs">
                                                             <rect key="frame" x="40" y="0.0" width="10" height="30"/>
@@ -358,32 +358,44 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UEZ-TM-IBe">
-                                <rect key="frame" x="76" y="560" width="225" height="38"/>
+                                <rect key="frame" x="76" y="560" width="225" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-yg-iP1">
-                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="38"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="30"/>
                                         <state key="normal" title="Calculate"/>
                                         <connections>
                                             <action selector="calculateButton:" destination="mfU-60-CkM" eventType="touchUpInside" id="Yui-4q-5jM"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VTa-AG-ytT">
-                                        <rect key="frame" x="127.5" y="0.0" width="97.5" height="38"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-bJ-JKy">
+                                        <rect key="frame" x="127.5" y="0.0" width="97.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vf-6T-7MN">
+                                                <rect key="frame" x="0.0" y="0.0" width="9" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FNX-hl-Dhk">
+                                                <rect key="frame" x="9" y="0.0" width="88.5" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="SzG-4N-pwf"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="VTa-AG-ytT" firstAttribute="width" secondItem="Hf1-yg-iP1" secondAttribute="width" id="MXB-nt-dQJ"/>
-                                    <constraint firstItem="VTa-AG-ytT" firstAttribute="height" secondItem="Hf1-yg-iP1" secondAttribute="height" id="xrg-7e-hGX"/>
+                                    <constraint firstItem="gcF-bJ-JKy" firstAttribute="width" secondItem="Hf1-yg-iP1" secondAttribute="width" id="R3m-hA-5Mm"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4fU-51-e7M" firstAttribute="top" secondItem="OLV-O8-26w" secondAttribute="bottom" id="7sH-EK-FLX"/>
-                            <constraint firstItem="gI7-06-mbp" firstAttribute="bottom" secondItem="UEZ-TM-IBe" secondAttribute="bottom" constant="20" id="8vO-wR-sAh"/>
                             <constraint firstItem="UEZ-TM-IBe" firstAttribute="centerX" secondItem="OLV-O8-26w" secondAttribute="centerX" id="JJZ-cE-Vpa"/>
                             <constraint firstItem="UEZ-TM-IBe" firstAttribute="top" secondItem="4fU-51-e7M" secondAttribute="bottom" constant="20" id="Jop-Ge-cUa"/>
                             <constraint firstItem="4fU-51-e7M" firstAttribute="leading" secondItem="gI7-06-mbp" secondAttribute="leading" id="WiE-Ne-Hc4"/>
@@ -409,7 +421,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ingredientsRecipeTableView" destination="4fU-51-e7M" id="gbk-xN-nyK"/>
-                        <outlet property="priceAfterCalculateButtonTapped" destination="VTa-AG-ytT" id="Rda-Qo-A8U"/>
+                        <outlet property="priceAfterCalculateButtonTapped" destination="FNX-hl-Dhk" id="lvh-G6-OmB"/>
                         <outlet property="recipeTextField" destination="OLV-O8-26w" id="NcO-ke-tlW"/>
                     </connections>
                 </viewController>
@@ -438,6 +450,12 @@
                                         <state key="normal" title="Calculate Your Recipe!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="49e-Tb-3d3" kind="show" id="qZx-yr-Zrd"/>
                                         </connections>
@@ -458,10 +476,37 @@
                                     <constraint firstItem="sQd-WP-Ddf" firstAttribute="leading" secondItem="JmT-O3-RqM" secondAttribute="leading" id="lDy-AQ-tp7"/>
                                 </constraints>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cookingPot" translatesAutoresizingMaskIntoConstraints="NO" id="GiC-lR-de0">
+                                <rect key="frame" x="87" y="233" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3gd-ip-20Y"/>
+                                    <constraint firstAttribute="height" constant="200" id="rFN-Bx-a7m"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Calculator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRl-YE-t2h">
+                                <rect key="frame" x="8" y="95" width="359" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pepper" translatesAutoresizingMaskIntoConstraints="NO" id="sQK-Yh-Yj0">
+                                <rect key="frame" x="152.5" y="298.5" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3Kv-6q-BBL"/>
+                                    <constraint firstAttribute="height" constant="70" id="DU2-S5-x9t"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kRl-YE-t2h" firstAttribute="centerX" secondItem="zaU-uc-R8x" secondAttribute="centerX" id="1Ry-Z3-JhM"/>
+                            <constraint firstItem="GiC-lR-de0" firstAttribute="centerX" secondItem="zaU-uc-R8x" secondAttribute="centerX" id="4lP-PP-G1F"/>
+                            <constraint firstItem="kRl-YE-t2h" firstAttribute="leading" secondItem="d3f-MQ-lLe" secondAttribute="leading" constant="8" id="Kce-8h-lvw"/>
+                            <constraint firstItem="sQK-Yh-Yj0" firstAttribute="centerX" secondItem="zaU-uc-R8x" secondAttribute="centerX" id="MOg-Qa-kq3"/>
+                            <constraint firstItem="GiC-lR-de0" firstAttribute="centerY" secondItem="zaU-uc-R8x" secondAttribute="centerY" id="UUN-q3-Kz4"/>
+                            <constraint firstItem="kRl-YE-t2h" firstAttribute="top" secondItem="d3f-MQ-lLe" secondAttribute="top" constant="75" id="jld-uh-7k0"/>
                             <constraint firstItem="JmT-O3-RqM" firstAttribute="centerX" secondItem="zaU-uc-R8x" secondAttribute="centerX" id="lSf-Jt-NRQ"/>
+                            <constraint firstItem="sQK-Yh-Yj0" firstAttribute="centerY" secondItem="zaU-uc-R8x" secondAttribute="centerY" id="nq4-pV-A8H"/>
                             <constraint firstItem="d3f-MQ-lLe" firstAttribute="bottom" secondItem="JmT-O3-RqM" secondAttribute="bottom" constant="65" id="uFO-K1-zm3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d3f-MQ-lLe"/>
@@ -539,8 +584,10 @@
     </scenes>
     <resources>
         <image name="checkedBox" width="35" height="35"/>
+        <image name="cookingPot" width="100" height="100"/>
         <image name="icons8-cardboard-box-30" width="30" height="30"/>
         <image name="icons8-ledger-30" width="30" height="30"/>
+        <image name="pepper" width="100" height="100"/>
         <image name="uncheckedBox" width="35" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>

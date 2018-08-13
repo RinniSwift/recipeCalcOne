@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A416E8BF211F470400D93807 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416E8BE211F470400D93807 /* MainViewController.swift */; };
 		A426EF51210CD6800090AD9F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A426EF4F210CD6800090AD9F /* Model.xcdatamodeld */; };
 		A47A8DD6211BD76000F73949 /* CalculationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47A8DD5211BD76000F73949 /* CalculationHelper.swift */; };
 		A48B0C77211E136A00F338CE /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48B0C76211E136A00F338CE /* Recipe.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A416E8BE211F470400D93807 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A426EF50210CD6800090AD9F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		A47A8DD5211BD76000F73949 /* CalculationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationHelper.swift; sourceTree = "<group>"; };
 		A48B0C76211E136A00F338CE /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		A426EF52210CD6AF0090AD9F /* files */ = {
 			isa = PBXGroup;
 			children = (
+				A416E8BE211F470400D93807 /* MainViewController.swift */,
 				A48F0855210915BE00B75CBC /* AppDelegate.swift */,
 				A48F0857210915BE00B75CBC /* FirstViewController.swift */,
 				A48C886B210F7B3200EA401A /* displayProduceViewController.swift */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A48C886C210F7B3200EA401A /* displayProduceViewController.swift in Sources */,
+				A416E8BF211F470400D93807 /* MainViewController.swift in Sources */,
 				A48F085A210915BE00B75CBC /* SecondViewController.swift in Sources */,
 				A4D84BAF2113647F0090F44C /* CoreDataHelper.swift in Sources */,
 				A48B0C77211E136A00F338CE /* Recipe.swift in Sources */,
