@@ -11,6 +11,7 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    var disclaimerHasBeenDisplayed = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,6 +43,14 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if disclaimerHasBeenDisplayed == false {
+            disclaimerHasBeenDisplayed = true
+            let alertController = UIAlertController(title: "Instructions", message: "Store ingredients you bought from the grocery store in this page", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
 
 

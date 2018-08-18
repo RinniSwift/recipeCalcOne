@@ -368,7 +368,7 @@ class DisplayRecipeViewController: UIViewController, UITableViewDelegate, UITabl
         
         //display totalCost on the UI
         priceAfterCalculateButtonTapped.text = String(format: "%.2f", totalCost)
-        
+        CoreDataHelper.saveRecipeProduce()
     }
     
     

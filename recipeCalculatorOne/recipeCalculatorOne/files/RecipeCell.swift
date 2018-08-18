@@ -12,5 +12,5 @@ import UIKit
 class RecipeCell: UITableViewCell {
 
     @IBOutlet weak var recipeLabel: UILabel!
-
+    @IBOutlet weak var recipeTotalPrices: UILabel!
 }

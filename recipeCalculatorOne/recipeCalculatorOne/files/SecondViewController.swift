@@ -12,6 +12,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    var disclaimerHasBeenDisplayed = false
+    
     @IBOutlet weak var recipeTableView: UITableView!
     
     var recipe = [Recipe]() {
@@ -33,6 +35,7 @@ class SecondViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         recipeTableView.reloadData()
         recipe = CoreDataHelper.retrieveRecipe()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +43,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if disclaimerHasBeenDisplayed == false {
+            disclaimerHasBeenDisplayed = true
+            
+            let alertController = UIAlertController(title: "Instructions", message: "Add homemade recipes by check boxing the ingredients and amount you used. Hit the calculate button and see the total price!", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
 }
 

@@ -60,6 +60,14 @@ struct CoreDataHelper {
         }
     }
     
+    static func saveRecipeProduce() {
+        do {
+            try context.save()
+        } catch let error {
+            print("could not save \(error.localizedDescription)")
+        }
+    }
+    
     
     static func delete(prod: Produce) {
         context.delete(prod)
