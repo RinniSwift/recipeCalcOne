@@ -25,4 +25,6 @@ class IngredientRecipeCell: UITableViewCell {
     @IBAction func pressCheckBox(_ checkboxButton: UIButton) {
         delegate?.ingredientCell(self, checkboxTapped: checkboxButton, to: checkboxButton.isSelected)
     }
+    
+    
 }
